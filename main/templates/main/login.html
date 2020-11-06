@@ -18,34 +18,43 @@
 							src="https://bulma.io/images/placeholders/128x128.png"
 						/>
 					</figure>
-					<form>
+					<form method="POST" action="" role="form">
+						{% csrf_token %}
+
 						<div class="field">
-							<div class="control">
-								<input
-									class="input is-large"
-									type="email"
-									placeholder="Your Email"
-									autofocus=""
-								/>
+							<div class="control has-icons-left">
+								<label class="label is-medium">Username</label>
+								{{ form.username }}
 							</div>
 						</div>
 
 						<div class="field">
-							<div class="control">
-								<input
-									class="input is-large"
-									type="password"
-									placeholder="Your Password"
-								/>
+							<div class="control has-icons-left">
+								<label class="label is-medium">password</label>
+								{{ form.password }}
 							</div>
 						</div>
+
+						{% if form.errors %}
+						<div class="row">
+							<div class="col s12">
+								<span style="color: red; font-weight: bold"
+									>Your username or password did not match</span
+								>
+							</div>
+						</div>
+						{% endif %}
+
 						<div class="field">
 							<label class="checkbox">
 								<input type="checkbox" />
 								Remember me
 							</label>
 						</div>
-						<button class="button is-block is-info is-large is-fullwidth">
+						<button
+							type="submit"
+							class="button is-block is-info is-large is-fullwidth"
+						>
 							Login <i class="fa fa-sign-in" aria-hidden="true"></i>
 						</button>
 					</form>

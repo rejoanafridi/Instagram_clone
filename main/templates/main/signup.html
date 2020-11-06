@@ -24,61 +24,37 @@
 					<p class="description">
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit
 					</p>
-					<form method="post">
+					<form method="POST" action="" role="form">
 						{% csrf_token %}
+
 						<div class="field">
-							<div class="control">
-								<input
-									name="firstName"
-									class="input is-medium"
-									type="text"
-									placeholder="First Name"
-								/>
+							<p class="control has-icons-left">
+								<label class="label is-medium">Username</label>
+								{{ form.username }}
+							</p>
+						</div>
+
+						<div class="field">
+							<div class="control has-icons-left">
+								<label class="label is-medium">E-Mail</label>
+								{{ form.email}}
 							</div>
 						</div>
 
 						<div class="field">
-							<div class="control">
-								<input
-									name="lastName"
-									class="input is-medium"
-									type="text"
-									placeholder="Last Name"
-								/>
-							</div>
-						</div>
-						<div class="field">
-							<div class="control">
-								<input
-									name="username"
-									class="input is-medium"
-									type="text"
-									placeholder="User Name"
-								/>
+							<div class="control has-icons-left">
+								<label class="label is-medium">Password</label>
+								{{ form.password}}
 							</div>
 						</div>
 
 						<div class="field">
-							<div class="control">
-								<input
-									name="useremail"
-									class="input is-medium"
-									type="email"
-									placeholder="Email"
-								/>
+							<div class="control has-icons-left">
+								<label class="label is-medium">confirm-password</label>
+								{{ form.confirm_password }}
 							</div>
 						</div>
-
-						<div class="field">
-							<div class="control">
-								<input
-									name="userPassword"
-									class="input is-medium"
-									type="password"
-									placeholder="Password"
-								/>
-							</div>
-						</div>
+						
 
 						<input
 							type="submit"
