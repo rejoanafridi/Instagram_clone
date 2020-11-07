@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 COPY . /code/
 RUN python manage.py collectstatic --noinput
 EXPOSE 8000
-CMD gunicorn Instragram_clone.wsgi:application --bind 0.0.0.0:8000
+CMD gunicorn instagram_clone.wsgi:application --bind 0.0.0.0:8000
