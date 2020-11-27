@@ -3,12 +3,24 @@ from django.contrib.auth import get_user
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 from .forms import*
+from post.models import Post, Stream
+
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    user = request.user
+    posts = Stream.objects.filter(user=user)
+    group_id=[]
+    for post in posts:
+        group_id.append(post.post_id)
+    post_items = Post.objects.filter(id__in=group_id).all().order_by('-posted')
+
+    context = {
+        'post_item':post_items,
+    }
+    return render(request, 'main/index.html', context)
 
 
 def post_details(request):

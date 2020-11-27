@@ -10,4 +10,8 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('signup/', views.registration, name='register'),
     path('login/', views.login, name='login_page')
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
